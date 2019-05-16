@@ -7,7 +7,7 @@ services:
     ports:
       - '8080:80'
     volumes:
-      - .:/var/www/html/
+      - ./api/:/var/www/html/
       - ./envConfig/default.conf:/etc/nginx/conf.d/default.conf
     networks:
       lumen_app_net:
@@ -16,7 +16,7 @@ services:
     container_name: lumen_app-fpm
     image: php:7.3-fpm-alpine
     volumes:
-      - .:/var/www/html/
+      - ./api/:/var/www/html/
       - ./envConfig/php.ini:/usr/local/etc/php/php.ini
     networks:
       lumen_app_net:
